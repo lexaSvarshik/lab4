@@ -189,6 +189,44 @@
 ## Задание 3
 ### Построить визуальную модель работы перцептрона на сцене Unity.
 
+Использован скрипт, чтобы визуализировать 3 разных состояния: оба нуля, одна единица, один ноль, обе единицы. При старте визуализируется первое состояние, при прохождении триггера - второе, при касании куба на земле - третье.
+```cs
+  using System;
+  using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+  
+  [RequireComponent(typeof(Perceptron))]
+  public class PerceptronCube : MonoBehaviour
+  {
+      [SerializeField] public Material zero1;
+      [SerializeField] public Material one1;
+  
+      private Perceptron perceptron;
+  
+      public void Start()
+      {
+          perceptron = GetComponent<Perceptron>();
+          GetComponent<MeshRenderer>().material = perceptron.CalcOutput(0, 0) == 0 ? zero1 : one1;
+      }
+   
+      public void OnTriggerEnter(Collider other)
+      {
+          GetComponent<MeshRenderer>().material = perceptron.CalcOutput(0, 1) == 0 ? zero1 : one1;
+      }
+  
+      public void OnCollisionEnter(Collision other)
+      {
+          GetComponent<MeshRenderer>().material = perceptron.CalcOutput(1, 1) == 0 ? zero1 : one1;
+      }
+  }
+```
+
+Сцена выглядит так:
+
+![изображение](https://github.com/lexaSvarshik/lab4/assets/96281939/c7be9d8a-9922-4e68-a728-f853322e7f95)
+
+Наглядная демонстрация есть в .exe файле (лежит в релизах)
 
 ## Выводы
 В результате проделанной работы я узнал что такое персептрон, как он работает и какие задачи можно решать с помощью него. Также узнал, как персептрон используется в  машинном обучении. 
