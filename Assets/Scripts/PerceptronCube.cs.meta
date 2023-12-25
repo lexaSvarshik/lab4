@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 06d4cc20a9127fc40bbe6f99e16aa58c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - zero1: {fileID: 2100000, guid: d90646b026335c2479a4700f11398b2b, type: 2}
+  - one1: {fileID: 2100000, guid: 16e0762c4ee27434f98f14089f424655, type: 2}
+  - perceptron: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
